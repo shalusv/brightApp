@@ -1,0 +1,7 @@
+{
+    "editor.minimap.maxColumn": 50,
+    "editor.minimap.enabled": true,
+    "editor.overviewRulerBorder": false,
+    "editor.rulers": [150],
+    
+}

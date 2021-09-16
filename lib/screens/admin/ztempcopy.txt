@@ -1,0 +1,35 @@
+Container(
+          padding: EdgeInsets.all(10),
+          child: Column(
+            children: [
+              Expanded(
+                child: ListView.builder(
+                    itemCount: tenderList.length,
+                    itemBuilder: (context, index) {
+                      Tender tender = tenderList[index];
+
+                      return InkWell(
+                        onTap: () {
+                          print('Tapped to ${tender.name}');
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => TenderViewScreen(
+                                tender: tender,
+                              ),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          child: ListTile(
+                            leading: Text('${index + 1}'),
+                            title: Text(tender.name),
+                            subtitle: Text(tender.id),
+                            trailing: Icon(Icons.keyboard_arrow_right),
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+            ],
+          ),
+        ),
