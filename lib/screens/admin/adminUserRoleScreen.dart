@@ -5,16 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 // import 'package:form_field_validator/form_field_validator.dart' as validator;
 
-class AdminHumanDesignationScreen extends StatefulWidget {
-  const AdminHumanDesignationScreen();
+class AdminUserRoleScreen extends StatefulWidget {
+  const AdminUserRoleScreen();
 
   @override
-  _AdminHumanDesignationScreenState createState() =>
-      _AdminHumanDesignationScreenState();
+  _AdminUserRoleScreenState createState() => _AdminUserRoleScreenState();
 }
 
-class _AdminHumanDesignationScreenState
-    extends State<AdminHumanDesignationScreen> {
+class _AdminUserRoleScreenState extends State<AdminUserRoleScreen> {
   @override
   void initState() {
     getPositions();

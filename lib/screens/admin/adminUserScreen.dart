@@ -1,6 +1,10 @@
 import 'package:bright_ui/screens/admin/addNewTender.dart';
+import 'package:bright_ui/screens/admin/adminUsers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+import 'addNewUser.dart';
+import 'adminUserRoleScreen.dart';
 
 class AdminUserScreen extends StatefulWidget {
   final String headerName;
@@ -44,9 +48,30 @@ class _AdminUserScreenState extends State<AdminUserScreen> {
                 mainAxisSpacing: 20,
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 15),
                 children: [
-                  hrMenuTiles(Icons.group, "Users"),
-                  hrMenuTiles(Icons.perm_identity, "Roles"),
-                  hrMenuTiles(Icons.list_alt, "Activities"),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AdminUsers(),
+                      ));
+                    },
+                    child: hrMenuTiles(Icons.group, "Users"),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AdminUserRoleScreen(),
+                      ));
+                    },
+                    child: hrMenuTiles(Icons.perm_identity, "Roles"),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      // Navigator.of(context).push(MaterialPageRoute(
+                      //   builder: (context) => AdminHumanEmployee(),
+                      // ));
+                    },
+                    child: hrMenuTiles(Icons.list_alt, "Activities"),
+                  ),
                 ],
                 staggeredTiles: [
                   StaggeredTile.extent(1, 130),
@@ -61,9 +86,14 @@ class _AdminUserScreenState extends State<AdminUserScreen> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => AddNewTender(),
-          ));
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddNewUser(() {
+                setState(() {});
+              }),
+            ),
+          );
         },
         backgroundColor: Colors.blue[800],
         icon: Icon(Icons.person_add_alt_1),
